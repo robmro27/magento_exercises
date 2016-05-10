@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Polcode_Helloworld>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Polcode_Helloworld>
+    </modules>
+</config>
