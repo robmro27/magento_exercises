@@ -1,0 +1,7 @@
+<layout>
+    <adminhtml_product_index>
+        <reference name="content">
+            <block type="helloworld/adminhtml_product" name="helloworld_product" />
+        </reference>
+    </adminhtml_product_index>
+</layout>

@@ -94,4 +94,27 @@
         </polcode_section>
     </default>
     
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Polcode_Helloworld before="Mage_Adminhtml">Polcode_Helloworld_Adminhtml</Polcode_Helloworld>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+     
+    <adminhtml>
+        <layout>
+            <updates>
+                <helloworld>
+                    <file>polcode/helloworld.xml</file>
+                </helloworld>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    
 </config>

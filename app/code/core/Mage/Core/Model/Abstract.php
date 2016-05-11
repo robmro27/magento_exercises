@@ -323,6 +323,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
             $this->_hasDataChanges = false;
             $dataCommited = true;
         } catch (Exception $e) {
+            
             $this->_getResource()->rollBack();
             $this->_hasDataChanges = true;
             throw $e;

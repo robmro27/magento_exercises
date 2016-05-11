@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
+    
+    <menu>
+        <sales>
+            <children>
+                <helloworld_product translate="title" module="helloworld">
+                    <title>Polcode Sold Products</title>
+                    <action>adminhtml/product</action>
+                </helloworld_product>
+            </children>
+        </sales>
+    </menu>
+    
+    
     <acl>
         <resources>
             <admin>
+                
+                <children>
+                    <sales>
+                        <children>
+                            <helloworld_product>
+                                <title>Polcode Sold Products</title>
+                            </helloworld_product>
+                        </children>
+                    </sales>
+                </children>
+                
                 <children>
                     <system>
                         <children>
@@ -16,6 +40,7 @@
                         </children>
                     </system>
                 </children>
+                
             </admin>
         </resources>
     </acl>
