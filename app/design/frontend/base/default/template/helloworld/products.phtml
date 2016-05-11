@@ -1,0 +1,27 @@
+<?php $collection = $this->getProducts(); ?>
+
+    <p><?php echo $this->__('Buyed Products') ?></p>
+
+
+<?php if($collection->getSize()): ?>
+<table class="data-table" id="my-custom-table">
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Sku') ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($collection as $_obj): ?>
+        <tr>
+            <td><?php echo $_obj->getSku() ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+
+<?php else: ?>
+
+    <p><?php echo $this->__('The collection is empty.'); ?></p>
+    
+<?php endif ?>

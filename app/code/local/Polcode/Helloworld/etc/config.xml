@@ -3,17 +3,37 @@
     
     <modules>
         <Polcode_Helloworld>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </Polcode_Helloworld>
     </modules>
     
     <global>
         
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <polcode_product_observer>
+                        <type>singleton</type>
+                        <class>helloworld/observer</class>
+                        <method>checkProduct</method>
+                    </polcode_product_observer>
+                </observers>
+            </sales_order_place_after>
+        </events>
         
         <models>
             <helloworld>
                 <class>Polcode_Helloworld_Model</class>
+                <resourceModel>helloworld_resource</resourceModel>
             </helloworld>
+            <helloworld_resource>
+                <class>Polcode_Helloworld_Model_Resource</class>
+                <entities>
+                    <product>
+                        <table>polcode_product</table>
+                    </product>
+                </entities>
+            </helloworld_resource>
         </models>
         <helpers>
             <helloworld>
@@ -37,6 +57,11 @@
                     <use>core_write</use>
                 </connection>
             </helloworld_write>
+            <helloworld_setup>
+                <setup>
+                    <module>Polcode_Helloworld</module>
+                </setup>
+            </helloworld_setup>
         </resources>
         
     </global>
@@ -59,5 +84,14 @@
             </updates>
         </layout>
     </frontend>
+    
+    <default>
+        <polcode_section>
+            <product>
+                <enabled>1</enabled>
+                <sku>Nothing there yet !</sku>
+            </product>
+        </polcode_section>
+    </default>
     
 </config>
