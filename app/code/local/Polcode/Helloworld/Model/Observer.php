@@ -6,8 +6,6 @@ class Polcode_Helloworld_Model_Observer {
     {
         try {
             
-            throw new \Exception('Test');
-            
             // check if module is enabled
             if (!Mage::helper('helloworld/helper')->isEnabled()) {
                 return $this;
