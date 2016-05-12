@@ -17,13 +17,13 @@ class Polcode_Helloworld_Adminhtml_ProductController extends Mage_Adminhtml_Cont
      
     public function editAction()
     {  
-        $this->_initAction();
      
         // Get id if available
         $id  = $this->getRequest()->getParam('id');
         $model = Mage::getModel('helloworld/product');
      
         if ($id) {
+            
             // Load record
             $model->load($id);
      
@@ -51,9 +51,16 @@ class Polcode_Helloworld_Adminhtml_ProductController extends Mage_Adminhtml_Cont
             ->renderLayout();
     }
      
+    
     public function saveAction()
     {
         if ($postData = $this->getRequest()->getPost()) {
+            
+            // set product id by sku
+            $sku = $postData['sku'];
+            $product = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
+            $postData['product_id'] = $product->getId();
+            
             $model = Mage::getSingleton('helloworld/product');
             $model->setData($postData);
             
@@ -63,7 +70,6 @@ class Polcode_Helloworld_Adminhtml_ProductController extends Mage_Adminhtml_Cont
                 
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('The product has been saved.'));
                 $this->_redirect('*/*/');
- 
                 return;
             }  
             catch (Mage_Core_Exception $e) {
@@ -74,10 +80,35 @@ class Polcode_Helloworld_Adminhtml_ProductController extends Mage_Adminhtml_Cont
             }
             
             Mage::getSingleton('adminhtml/session')->setProductData($postData);
-            $this->_redirectReferer();
+            $this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('id')));
+            
         }
     }
      
+    
+    public function deleteAction()
+    {
+        if($this->getRequest()->getParam('id') > 0)
+        {
+          try
+          {
+              
+              $model = Mage::getModel('helloworld/product');
+              $model->setId($this->getRequest()->getParam('id'))->delete();
+              Mage::getSingleton('adminhtml/session')->addSuccess('Product deleted');
+              $this->_redirect('*/*/');
+           }
+           catch (Exception $e)
+           {
+                Mage::getSingleton('adminhtml/session')
+                     ->addError($e->getMessage());
+                $this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('id')));
+           }
+       }
+      $this->_redirect('*/*/');
+    }
+    
+    
     public function messageAction()
     {
         $data = Mage::getModel('helloworld/product')->load($this->getRequest()->getParam('id'));

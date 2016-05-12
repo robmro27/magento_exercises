@@ -46,6 +46,28 @@ class Polcode_Helloworld_Block_Adminhtml_Product_Grid extends Mage_Adminhtml_Blo
                 'index' => 'sku'
             )
         );
+        
+        $this->addColumn('order_date',
+            array(
+                'header'=> $this->__('Order Date'),
+                'index' => 'order_date',
+                'type'  => 'date'
+            )
+        );
+        
+        $this->addColumn('price',
+            array(
+                'header'=> $this->__('Price'),
+                'index' => 'price'
+            )
+        );
+        
+        $this->addColumn('qty',
+            array(
+                'header'=> $this->__('Qty'),
+                'index' => 'qty'
+            )
+        );
          
         return parent::_prepareColumns();
     }

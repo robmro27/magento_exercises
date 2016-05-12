@@ -44,8 +44,34 @@ class Polcode_Helloworld_Block_Adminhtml_Product_Edit_Form extends Mage_Adminhtm
             'label'     => Mage::helper('checkout')->__('Sku'),
             'title'     => Mage::helper('checkout')->__('Sku'),
             'required'  => true,
+            'style'     => 'width:110px !important;'
         ));
+        
+        $fieldset->addField('order_date', 'date', array(
+            'name'       => 'order date',
+            'label'     => Mage::helper('checkout')->__('Order Date'),
+            'title'     => Mage::helper('checkout')->__('Order Date'),
+            'image'     => $this->getSkinUrl('images/grid-cal.gif'),    
+            'format'    => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+            'required'  => true,
+        ));      
      
+        $fieldset->addField('price', 'text', array(
+            'name'       => 'price',
+            'label'     => Mage::helper('checkout')->__('Price'),
+            'title'     => Mage::helper('checkout')->__('Price'),
+            'required'  => true,
+            'style'     => 'width:110px !important;'
+        ));
+        
+        $fieldset->addField('qty', 'text', array(
+            'name'       => 'qty',
+            'label'     => Mage::helper('checkout')->__('Qty'),
+            'title'     => Mage::helper('checkout')->__('Qty'),
+            'required'  => true,
+            'style'     => 'width:110px !important;'
+        ));
+        
         $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);
