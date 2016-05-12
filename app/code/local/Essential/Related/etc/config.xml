@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    
+    <modules>
+        <Essential_Related>
+            <version>0.1.0</version>
+        </Essential_Related>
+    </modules>
+    
+    <global>
+        <resources>
+            <essential_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </essential_read>
+            <essential_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </essential_write>
+            <essential_setup>
+                <setup>
+                    <module>Essential_Related</module>
+                </setup>
+            </essential_setup>
+        </resources>
+    </global>
+    
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <related>
+                    <file>essential/related.xml</file>
+                </related>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+</config>
