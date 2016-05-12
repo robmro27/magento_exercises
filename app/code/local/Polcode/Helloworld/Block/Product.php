@@ -4,7 +4,7 @@ class Polcode_Helloworld_Block_Product
     extends Mage_Core_Block_Template
 {
         protected $currentPage = null;
-        protected $limit = 10;
+        protected $limit = 1;
         protected $size = null;
         
         protected $dateFrom = null;
@@ -29,12 +29,13 @@ class Polcode_Helloworld_Block_Product
                                     ->setPageSize($this->limit)
                                     ->setCurPage($this->currentPage);
             
-            
-            $collection->addFieldToFilter('order_date', array(
-                'from' => $this->dateFrom,
-                'to' => $this->dateTo,
-                'date' => true,
-            ));
+            if ($this->getRequest()->isGet()) {
+                $collection->addFieldToFilter('order_date', array(
+                    'from' => $this->dateFrom,
+                    'to' => $this->dateTo,
+                    'date' => true,
+                ));
+            }
             
             $this->size = $collection->getSize();
             

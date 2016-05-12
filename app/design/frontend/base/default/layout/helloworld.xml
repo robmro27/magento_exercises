@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="head">
+                <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params></params></action>
+                <action method="addItem"><type>js</type><name>calendar/calendar.js</name></action>
+                <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name></action>
+                <block type="core/html_calendar" name="head.calendar" as="calendar" template="page/js/calendar.phtml"></block>
+        </reference>
+        <reference name="right">
+            <block before="-" type="helloworld/product" name="polcode.helloworld" template="polcode_helloworld/products.phtml"></block>
+        </reference>    
+    </default>
+    <helloworld_index_block>
+        <reference name="content">
+            <block type="helloworld/helloworld" name="polcode.helloworld" template="polcode_helloworld/hello.phtml"></block>
+        </reference>
+    </helloworld_index_block>
+    
+    <custom_pdf translate="label">
+        <reference name="category.products">
+            <action method="setTemplate">
+              <template>polcode_helloworld/catalog/category/view.phtml</template>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <action method="setTemplate">
+              <template>polcode_helloworld/catalog/product/view.phtml</template>
+            </action>
+        </reference>
+    </custom_pdf>
+    
+</layout>

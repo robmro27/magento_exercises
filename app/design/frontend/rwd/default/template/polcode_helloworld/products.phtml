@@ -4,9 +4,9 @@
 
 
 <form action="#" method="get">
-    <input style="width:70px;float: left; margin-right: 5px" class="input-text" type="text" name="date_from" id="date_from" value="" />
-    <input style="width:70px;float: left; margin-right: 5px" class="input-text" type="text" name="date_to" id="date_to" value="" /> 
-    <input style="clear:both;" class="button" type="submit" name="filter" value="Filter"/>
+    <input style="width:70px;float: left; margin-right: 5px" class="input-text" type="text" name="date_from" id="date_from" value="<?php echo $this->getRequest()->getParam('date_from')?>" />
+    <input style="width:70px;float: left; margin-right: 5px" class="input-text" type="text" name="date_to" id="date_to" value="<?php echo $this->getRequest()->getParam('date_to')?>" /> 
+    <input style="clear:both;" class="button" type="submit" value="Filter"/>
 </form>    
 
 <?php if($collection->getSize()): ?>
