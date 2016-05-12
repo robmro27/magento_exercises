@@ -8,6 +8,13 @@
     </modules>
     
     <global>
+        
+        <models>
+            <essential_related>
+                <class>Essential_Related_Model</class>
+            </essential_related>
+        </models>
+        
         <resources>
             <essential_read>
                 <connection>
@@ -46,6 +53,18 @@
                 </essential_related>
             </updates>
         </layout>
+        
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <essential_related_layout_load_before>
+                        <class>essential_related/observer</class>
+                        <method>controllerActionLayoutLoadBefore</method>
+                    </essential_related_layout_load_before>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+        
     </frontend>
     
 </config>

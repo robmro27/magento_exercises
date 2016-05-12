@@ -1,0 +1,63 @@
+<?php $collection = $this->getCollection(); ?>
+
+    <p><?php echo $this->__('Buyed Products') ?></p>
+
+
+<form action="#" method="get">
+    <input style="width:70px;float: left; margin-right: 5px" class="input-text" type="text" name="date_from" id="date_from" value="" />
+    <input style="width:70px;float: left; margin-right: 5px" class="input-text" type="text" name="date_to" id="date_to" value="" /> 
+    <input style="clear:both;" class="button" type="submit" name="filter" value="Filter"/>
+</form>    
+
+<?php if($collection->getSize()): ?>
+<table class="data-table" id="my-custom-table">
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Sku') ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($collection as $_obj): ?>
+        <tr>
+            <td><?php echo $_obj->getSku() ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php if(!$this->isFirstPage()): ?>      
+    <a href="<?php echo $this->getPrevPageUrl() ?>"><?php echo $this->__('Prev') ?></a>    
+<?php endif; ?>
+
+
+<?php if(!$this->isLastPage()): ?>  
+    <a href="<?php echo $this->getNextPageUrl() ?>"><?php echo $this->__('Next') ?></a>
+<?php endif; ?>
+
+
+
+
+<?php else: ?>
+
+    <p><?php echo $this->__('The collection is empty.'); ?></p>
+    
+<?php endif ?>
+
+<script type="text/javascript">// <![CDATA[
+    Calendar.setup({
+        inputField : 'date_from',
+        ifFormat : '%m/%e/%y',
+        button : 'date_from_trig',
+        align : 'Bl',
+        singleClick : true
+    });
+
+    Calendar.setup({
+        inputField : 'date_to',
+        ifFormat : '%m/%e/%y',
+        button : 'date_to_trig',
+        align : 'Bl',
+        singleClick : true
+    });
+// ]]></script>

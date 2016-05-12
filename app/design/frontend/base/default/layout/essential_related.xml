@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <catalog_product_view_essential_related translate="label">
+        <reference name="catalog.product.related">
+            <action method="setTemplate">
+              <template>essential_related/catalog/product/list/related.phtml</template>
+            </action>
+        </reference>
+    </catalog_product_view_essential_related>
+</layout>

@@ -40,4 +40,11 @@ class Polcode_Helloworld_Model_Observer {
         return $this;
     }
     
+    public function controllerActionLayoutLoadBefore(Varien_Event_Observer $observer)
+    {            
+        /** @var $layout Mage_Core_Model_Layout */
+        $layout = $observer->getEvent()->getLayout();
+        $layout->getUpdate()->addHandle('custom_pdf');
+    }
+    
 }
