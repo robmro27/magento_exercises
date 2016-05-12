@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <catalog_product_view translate="label">
+        <reference name="product.info">
+             <block type="catalog/product_list_related" name="catalog.product.related" as="related_products" template="essential_related/catalog/product/list/related.phtml" />
+        </reference>
+    </catalog_product_view>
+</layout>

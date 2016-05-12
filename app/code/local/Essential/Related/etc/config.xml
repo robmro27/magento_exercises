@@ -38,4 +38,14 @@
         </layout>
     </adminhtml>
     
+    <frontend>
+        <layout>
+            <updates>
+                <essential_related>
+                    <file>essential_related.xml</file>
+                </essential_related>
+            </updates>
+        </layout>
+    </frontend>
+    
 </config>
