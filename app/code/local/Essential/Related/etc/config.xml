@@ -15,6 +15,17 @@
             </essential_related>
         </models>
         
+        <blocks>
+            <essential_related>
+                <class>Essential_Related_Block</class>
+            </essential_related>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_edit_tab_related>Essential_Related_Block_Adminhtml_Catalog_Product_Edit_Tab_Related</catalog_product_edit_tab_related>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        
         <resources>
             <essential_read>
                 <connection>

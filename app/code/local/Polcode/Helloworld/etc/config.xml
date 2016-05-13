@@ -3,7 +3,7 @@
     
     <modules>
         <Polcode_Helloworld>
-            <version>0.4.0</version>
+            <version>0.3.0</version>
         </Polcode_Helloworld>
     </modules>
     
@@ -44,6 +44,11 @@
             <helloworld>
                 <class>Polcode_Helloworld_Block</class>
             </helloworld>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_grid>Polcode_Helloworld_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>
         </blocks>
         
         <resources>

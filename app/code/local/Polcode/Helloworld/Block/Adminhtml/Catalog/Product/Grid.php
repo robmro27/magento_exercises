@@ -31,11 +31,12 @@
  * @package    Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Polcode_Helloworld_Block_Adminhtml_Catalog_Product_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
 
     public function __construct()
     {
+        
         parent::__construct();
         $this->setId('productGrid');
         $this->setDefaultSort('entity_id');
